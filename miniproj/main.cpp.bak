@@ -1,0 +1,175 @@
+#include <iostream>
+#include <math.h>
+//#include "main.h"
+using namespace std;
+matrice m1;
+matrice m2;
+int n;
+
+typedef struct matrice {
+	int tab[10][10];
+	int l[10];
+}; matrice;
+
+void insert(int elt, matrice mat, int indice)
+{
+	
+}
+/*
+void ask();
+void afficher();
+void sort(int classe, int pow);
+
+int main ()
+{
+    ask();
+    afficher();
+    for (int j(0);j<n;j++)
+    {
+        for (int c(0);c<10;c++)
+        {
+        sort(c,j);
+        }
+        afficher();
+    }
+   // sort(3,1);
+    afficher();
+return 0;
+};
+
+void afficher()
+{
+	for (int i(0);i<10;i++)
+	{
+		for (int j(0);j<10;j++)
+		{
+			cout << tab[i][j]<< " ";
+		}
+	    cout << endl;
+	 }
+	cout << "valeur de n : " << n << endl;
+	cout << "Nombre d'objets dans les colonnes :";
+	for(int j(0);j<10;j++) cout<< l[j];
+	cout << endl;
+};
+void sort(int classe, int puiss)
+{
+	int flo;
+	int cible;
+	int buffer1(0);
+	int up(0);
+	int lclasseinit = l[classe];
+
+	cout << "Tri de la classe : " << classe << " pour 10^" << puiss << endl;
+
+	for (int i(l[classe]-1);i>=0;i--)
+	{
+		flo = floor(tab[classe][i]/pow(10,puiss));
+		cible = flo%10;
+        if (cible == classe)
+        {
+            cout << "Ce nombre est dans la bonne colonne |" << tab[classe][i] << "|" << lclasseinit+up << endl;
+       //     buffer1 = tab[classe][i];
+       //     tab[classe][i] = 0;
+       //     tab[classe][lclasseinit+up] = buffer1;
+       //   up++;
+        }
+		else
+		{
+		    cout << "Deplacement : " << tab[classe][i] << "|" << flo << "|" << cible << endl;
+
+            buffer1 = tab[classe][i];
+            tab[classe][i] = 0;
+            tab[cible][l[cible]] = buffer1;
+            l[classe]--; l[cible]++;
+		}
+	}
+
+    int k(0);
+    int buffer2(0);
+
+	for (int j(0);j<10;j++)
+	{
+        if (tab[classe][j] > 0)
+	    {
+	        cout << "Reamenagement : " << tab[classe][j] << " de " << j << " vers " << k << "|" << l[classe]-k << endl;
+
+            buffer2 = tab[classe][j];
+	        tab[classe][j] = 0;
+	        tab[classe][k] = buffer2;
+	        k++;
+	    }
+	}
+};
+
+void ask()
+{
+    int nb(0);
+
+    cout << "Inserez les nombres que vous souhaitez classer : \n (apres la derniere entree ecrivez -1 pour terminer la saisie)" << endl;
+    while(1)
+    {
+        if (nb==-1) break;
+        else
+        {            cin >> nb;
+            insert(nb, tab, 0); /* elt, tableau, indice de tri */
+			/*switch(nb%10)
+			{
+			case 0 :
+                {
+                    tab[0][l[0]] = nb;
+                    l[0]++; break;
+                }
+                case 1 :
+                {
+                    tab[1][l[1]] = nb;
+                    l[1]++; break;
+                }
+                case 2 :
+                {
+                    tab[2][l[2]] = nb;
+                    l[2]++; break;
+                }
+                case 3 :
+                {
+                    tab[3][l[3]] = nb;
+                    l[3]++; break;
+                }
+                case 4 :
+                {
+                    tab[4][l[4]] = nb;
+                    l[4]++; break;
+                }
+                case 5 :
+                {
+                    tab[5][l[5]] = nb;
+                    l[5]++; break;
+                }
+                case 6 :
+                {
+                    tab[6][l[6]] = nb;
+                    l[6]++; break;
+                }
+                case 7 :
+                {
+                    tab[7][l[7]] = nb;
+                    l[7]++; break;
+                }
+                case 8 :
+                {
+                    tab[8][l[8]] = nb;
+                    l[8]++; break;
+                }
+                case 9 :
+                {
+                    tab[9][l[9]] = nb;
+                    l[9]++; break;
+                }
+			}
+				while(nb > pow(10,n)) {
+				n++;
+            };
+        }
+    }
+};
+*/

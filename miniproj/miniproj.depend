@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1323303181 source:e:\mes documents\projet\miniproj\main.cpp
+	<iostream>
+	<math.h>
+
+1323378250 source:c:\users\ken\dropbox\n7\projet\miniproj\main.cpp
+	<iostream>
+	<math.h>
+	<stdlib.h>
+
