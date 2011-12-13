@@ -1,0 +1,43 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\usepackage{minted}
+
+\chead{\includegraphics[width=200px]{inpn7_web.jpg}} %logo inp enseeiht
+\author{Ken Hasselmann, Anne Jamet}
+
+\title{Rapport \\ Mini projet 1 - Tri par distribution}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} %logo only on this page & no line under logo
+
+\begin{enumerate}
+\item{La structuration de l'environnement se fait à l'aide d'une matrice qui contiendra un tableau de 10 lignes et 100 colonnes afin de pouvoir stocker tous les nombres. Ainsi qu'une liste du nombre d'élements par colonnes.}
+
+\inputminted[linenos,firstline=1,firstnumber=1,lastline = 14]{cpp}{sp/main.h}
+
+On saisit les chiffres qui iront dans une fonction de tri initial, qui les placera dans le tableau, puis on fera le tri suivant les colonnes et ensuite on change d'indice de tri et on recommence le tri suivant les colonnes et cela jusqu'à atteindre le nombre d'étapes defini par le plus grand nombre.
+\\
+
+\item{La saisie des nombres se fait dans la fonction main, à l'aide de la fonction insert.}
+
+\inputminted[linenos,firstline=16,firstnumber=16,lastline = 22]{cpp}{sp/main.2.cpp}
+\clearpage
+\item{Pour connaitre le nombre d'étapes on fait une boucle sur l'ensemble des nombres qui incrementera une variable dès qu'il trouve un nombre ayant plus de chiffres que le précédent.}
+
+\inputminted[linenos,firstline=24,firstnumber=24,lastline = 24]{cpp}{sp/main.2.cpp}
+
+\item{Pour déterminer à quelle classe appartient un nombre, on extrait le chiffre des unités, dizaines ou centaines (etc...) grâce à la partie entiere du nombre divisé par 1,10 ou 100 modulo 10.}
+
+\inputminted[linenos,firstline=68,firstnumber=68,lastline = 74]{cpp}{sp/main.2.cpp}
+
+\item{Grâce la structure du programme, il suffit de faire une boucle entre l'insertion dans une matrice, le tri et l'échange puis on échange les pointeurs des matrices pour recommencer l'opération.}
+\inputminted[linenos,firstline=30,firstnumber=30,lastline = 44]{cpp}{sp/main.2.cpp}
+
+\end{enumerate}
+\end{document}
