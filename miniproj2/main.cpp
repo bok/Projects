@@ -7,23 +7,24 @@ using namespace std;
 typedef struct employe employe;
 struct employe
 {
-	int nom;
+	string nom;
 	employe *next;
 	employe *boss;
 };
 
-employe* ajouteremploye(employe *arbre, int nom, int boss);
+employe* ajouteremploye(employe *arbre, string nom, string boss);
 employe* licencieemploye(string nom);
 void creerArbreInitial(employe*);
 void afficher(employe*);
 void ask(employe*);
-void afficherbranche(employe*, int boss);
+void afficherbranche(employe*, string boss);
 
 int main()
 {
 	employe *arbre = new employe;
 	(*arbre).next = NULL;
 	(*arbre).boss = arbre;
+	(*arbre).nom = "john";
 
 	creerArbreInitial(arbre);
 	ask(arbre);
@@ -32,7 +33,7 @@ int main()
 	return 0;
 }
 
-employe* ajouteremploye(employe* arbre, int nom, int boss)
+employe* ajouteremploye(employe* arbre, string nom, string boss)
 {
 	employe* nouvelemploye = new employe;
 	(*nouvelemploye).nom = nom;
@@ -66,7 +67,7 @@ employe* ajouteremploye(employe* arbre, int nom, int boss)
 	}
 }
 
-employe* licencieemploye(employe* arbre, int nom)
+employe* licencieemploye(employe* arbre, string nom)
 {
 	if (arbre == NULL)
 	{
@@ -91,11 +92,11 @@ employe* licencieemploye(employe* arbre, int nom)
 
 void creerArbreInitial(employe *arbre)
 {
-	ajouteremploye(arbre, 1, 0);
-	ajouteremploye(arbre, 2, 0);
-	ajouteremploye(arbre, 4, 1);
-	ajouteremploye(arbre, 3, 1);
-	licencieemploye(arbre, 2);
+	ajouteremploye(arbre, "bob", "john");
+	ajouteremploye(arbre, "glou", "john");
+	ajouteremploye(arbre, "fi", "bob");
+	ajouteremploye(arbre, "doux", "bob");
+	licencieemploye(arbre, "glou");
 }
 
 void afficher(employe *arbre)
@@ -111,7 +112,7 @@ void afficher(employe *arbre)
 	cout << " | boss : " << (*(*temp).boss).nom << endl;
 }
 
-void afficherbranche(employe *arbre, int boss)
+void afficherbranche(employe *arbre, string boss)
 {
 	employe *temp = arbre;
 	while ((*temp).next != NULL)
@@ -132,7 +133,8 @@ void afficherbranche(employe *arbre, int boss)
 
 void ask(employe *arbre)
 {
-	int nom,nb,boss,sup,bossc;
+	string nom,boss,sup,bossc;
+	int nb;
 	cout << "Entrez 1 pour ajouter un employé, 2 pour licencier, 3 pour afficher l'arbre complet, 4 pour afficher une branche de l'arbre" << endl;
 	cin >> nb; cout << endl;
 	switch (nb)
@@ -164,7 +166,7 @@ void ask(employe *arbre)
 			{
 				cout << "Entrez le nom du boss dont vous voulez connaitre les employés : ";
 				cin >> bossc;
-				afficherbranche( arbre, bossc);
+				afficherbranche(arbre, bossc);
 				break;
 			}
 	}
