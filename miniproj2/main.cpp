@@ -13,7 +13,7 @@ struct employe
 };
 
 employe* ajouteremploye(employe *arbre, string nom, string boss);
-employe* licencieemploye(string nom);
+void licencieemploye(string nom);
 void creerArbreInitial(employe*);
 void afficher(employe*);
 void ask(employe*);
@@ -27,6 +27,7 @@ int main()
 	(*arbre).nom = "john";
 
 	creerArbreInitial(arbre);
+	afficher(arbre);
 	ask(arbre);
 	afficher(arbre);
 
@@ -67,11 +68,11 @@ employe* ajouteremploye(employe* arbre, string nom, string boss)
 	}
 }
 
-employe* licencieemploye(employe* arbre, string nom)
+void licencieemploye(employe* arbre, string nom)
 {
 	if (arbre == NULL)
 	{
-		return NULL;
+	//	return NULL;
 	}
 
 	employe *temp = arbre;
@@ -121,7 +122,7 @@ void afficherbranche(employe *arbre, string boss)
 		{
 			cout << "nom de l'employé : " << (*temp).nom << endl;
 		}
-	temp = (*temp).next;
+		temp = (*temp).next;
 	}
 	if ((*(*temp).boss).nom == boss)
 	{
@@ -133,41 +134,47 @@ void afficherbranche(employe *arbre, string boss)
 
 void ask(employe *arbre)
 {
-	string nom,boss,sup,bossc;
 	int nb;
-	cout << "Entrez 1 pour ajouter un employé, 2 pour licencier, 3 pour afficher l'arbre complet, 4 pour afficher une branche de l'arbre" << endl;
-	cin >> nb; cout << endl;
-	switch (nb)
+	while(nb != 5)
 	{
-		case 1 : 
-			{
-				cout << "entrez le nom de l'employé : ";
-				cin >> nom;
-				cout << endl << "entrez le nom de son boss : ";
-				cin >> boss;
-				cout << endl;
-				ajouteremploye(arbre, nom, boss);
-				break;
-			}
-		case 2 : 
-			{
-				cout << "entrez le nom de l'employe a supprimer : ";
-				cin >> sup;
-				cout << endl;
-				licencieemploye(arbre, sup);
-				break;
-			}
-		case 3 : 
-			{
-				afficher(arbre);
-				break;
-			}
-		case 4 : 
-			{
-				cout << "Entrez le nom du boss dont vous voulez connaitre les employés : ";
-				cin >> bossc;
-				afficherbranche(arbre, bossc);
-				break;
-			}
+		string nom,boss,sup,bossc;
+		cout << endl << "Entrez 1 pour ajouter un employé, 2 pour licencier, 3 pour afficher l'arbre complet, 4 pour afficher une branche de l'arbre, 5 pour quitter" << endl;
+		cin >> nb; cout << endl;
+		switch (nb)
+		{
+			case 1 : 
+				{
+					cout << "entrez le nom de l'employé : ";
+					cin >> nom;
+					cout << endl << "entrez le nom de son boss : ";
+					cin >> boss;
+					cout << endl;
+					ajouteremploye(arbre, nom, boss);
+					cout << "OK" << endl;
+					break;
+				}
+			case 2 : 
+				{
+					cout << "entrez le nom de l'employe a supprimer : ";
+					cin >> sup;
+					cout << endl;
+					licencieemploye(arbre, sup);
+					cout << "OK" << endl;
+					break;
+				}
+			case 3 : 
+				{
+					afficher(arbre);
+					break;
+				}
+			case 4 : 
+				{
+					cout << "Entrez le nom du boss dont vous voulez connaitre les employés : ";
+					cin >> bossc;
+					cout << "Resultat :" << endl;
+					afficherbranche(arbre, bossc);
+					break;
+				}
+		}
 	}
 }
